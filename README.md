@@ -1,0 +1,2 @@
+# SzakDogTar
+Szakdolgozat nyilvántartó rendszer
