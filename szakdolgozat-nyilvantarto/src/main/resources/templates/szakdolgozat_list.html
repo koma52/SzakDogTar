@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Szakdolgozatok</title>
+</head>
+<body>
+<h1>Szakdolgozatok listája</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Cím</th>
+        <th>Szerző</th>
+        <th>Műveletek</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="szakdolgozat : ${szakdolgozatok}">
+        <td th:text="${szakdolgozat.id}">1</td>
+        <td th:text="${szakdolgozat.cim}">Cím</td>
+        <td th:text="${szakdolgozat.szerzo}">Szerző</td>
+        <td>
+            <a th:href="@{'/szakdolgozat/edit/' + ${szakdolgozat.id}}">Szerkesztés</a>
+            <a th:href="@{'/szakdolgozat/delete/' + ${szakdolgozat.id}}">Törlés</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/szakdolgozat/new">Új szakdolgozat felvitele</a>
+</body>
+</html>

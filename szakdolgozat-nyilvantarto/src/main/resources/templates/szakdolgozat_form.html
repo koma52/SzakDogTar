@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Szakdolgozat űrlap</title>
+</head>
+<body>
+<h1 th:text="${szakdolgozat.id} != null ? 'Szerkesztés' : 'Új szakdolgozat'}">Űrlap</h1>
+<form th:action="@{${szakdolgozat.id} != null ? '/szakdolgozat/update/' + ${szakdolgozat.id} : '/szakdolgozat/create'}" method="post">
+    <div>
+        <label>Cím:</label>
+        <input type="text" name="cim" th:value="${szakdolgozat.cim}" required />
+        <div th:if="${#fields.hasErrors('cim')}" th:errors="*{cim}"></div>
+    </div>
+    <div>
+        <label>Szerző:</label>
+        <input type="text" name="szerzo" th:value="${szakdolgozat.szerzo}" required />
+        <div th:if="${#fields.hasErrors('szerzo')}" th:errors="*{szerzo}"></div>
+    </div>
+    <button type="submit">Mentés</button>
+</form>
+<a href="/szakdolgozatok">Vissza a listához</a>
+</body>
+</html>
