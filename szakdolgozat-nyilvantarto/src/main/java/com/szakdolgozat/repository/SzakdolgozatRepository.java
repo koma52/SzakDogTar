@@ -8,4 +8,7 @@ import java.util.List;
 public interface SzakdolgozatRepository extends JpaRepository<Szakdolgozat, Long> {
     List<Szakdolgozat> findByCimContainingIgnoreCase(String cim);
     List<Szakdolgozat> findBySzerzoContainingIgnoreCase(String szerzo);
+    List<Szakdolgozat> findBySzerzo(String szerzo);
+    List<Szakdolgozat> findByTemaVezeto(String temaVezeto);
+
 }
